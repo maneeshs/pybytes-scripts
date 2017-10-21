@@ -3,6 +3,16 @@
 # to get this script working, install ttab before
 # npm install ttab -g
 
+# suppose you cloned this repository into directory where you have your other pybytes microservices
+#
+# pybytes-react/
+# pybytes-scripts/
+# ...
+
+# you have create link of this script to `pybytes microservices` directory
+# to link this script stay in `pybytes microservices` directory and run:
+# ln -s pybytes-scripts/start-pybytes.sh start-pybytes.sh
+
 cat << "EOF"
 
     ____                                ____        __          __
@@ -13,9 +23,6 @@ cat << "EOF"
       /____/                              /____/      /____/
 
 EOF
-
-PYBYTES_DIR='.'
-cd ${PYBYTES_DIR}
 
 read -r -p "Start mongod? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
