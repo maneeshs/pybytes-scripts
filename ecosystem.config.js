@@ -75,7 +75,8 @@ module.exports = {
     },
     {
       name      : 'web-backend',
-      script    : 'bin/www',
+      script    : '/usr/local/bin/npm',
+      args      : 'run dev',
       watch     : ["./"],
       watch_options : {
           cwd: `${BASE_DIR}/pybytes-api`,
@@ -88,7 +89,7 @@ module.exports = {
         PROCESS_FILE: 'web-backend',   // process title, useful for ps -fC name
         NODE_ENV: 'development',
         PORT: '3000',
-        DEBUG: 'app:*,token:*'
+        DEBUG: ''
       },
       env_production : {
         NODE_ENV: 'production'
