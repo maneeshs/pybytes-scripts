@@ -26,7 +26,7 @@ EOF
 
 read -r -p "Start mqtt-server? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t mqtt-server -G "cd mqttserver; npm run develop"
+    ttab -t mqtt-server -G "cd mqttserver; npm run devbabel"
 fi
 
 read -r -p "Start PyBill? [Y/n] " response
@@ -36,7 +36,7 @@ fi
 
 read -r -p "Start PyAuth? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t PyAuth -G "cd pyauth; npm run develop"
+    ttab -t PyAuth -G "cd pyauth; npm run devbabel"
 fi
 
 read -r -p "Start Pybytes-api? [Y/n] " response
