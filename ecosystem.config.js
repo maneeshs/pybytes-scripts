@@ -13,23 +13,27 @@ module.exports = {
   apps : [
     {
       name      : 'mqtt',
-      script    : 'start.js',
+      script    : '/usr/local/bin/npm',
+      args      : 'run dev',
       watch     : ["./"],
       watch_options : {
           cwd: `${BASE_DIR}/mqttserver`,
       },
+      wait_ready: true,
       ignore_watch : ["node_modules", ".git"],
       kill_timeout : 3000,
       max_restarts: 3,
       cwd       : `${BASE_DIR}/mqttserver`,
       log_date_format : "YYYY-MM-DD HH:mm:ss",
       env: {
-        PROCESS_FILE: 'mqtt',   // process title, useful for ps -fC name
-        NODE_ENV: 'development',
+          PROCESS_FILE: 'mqtt',   // process title, useful for ps -fC name
+          NODE_ENV: 'development',
       },
       env_production : {
-        NODE_ENV: 'production'
-      }
+          NODE_ENV: 'production'
+      },
+      exec_interpreter: `${BASE_DIR}/mqttserver/node_modules/.bin/babel-node`,
+      source_map_support: true
     },
     {
       name      : 'pyauth',
@@ -38,16 +42,17 @@ module.exports = {
       watch_options : {
           cwd: `${BASE_DIR}/pyauth`,
       },
+      wait_ready: true,
       ignore_watch : ["node_modules", ".git"],
       kill_timeout : 3000,
       max_restarts: 3,
       cwd       : `${BASE_DIR}/pyauth`,
       log_date_format : "YYYY-MM-DD HH:mm:ss",
       env: {
-        PORT: '3200',
-        PROCESS_FILE: 'pyauth',   // process title, useful for ps -fC name
-        NODE_ENV: 'development',
-        DEBUG: 'pyauth:*'
+          PORT: '3200',
+          PROCESS_FILE: 'pyauth',   // process title, useful for ps -fC name
+          NODE_ENV: 'development',
+          DEBUG: 'pyauth:*'
       },
       env_production : {
         NODE_ENV: 'production'
@@ -60,17 +65,18 @@ module.exports = {
       watch_options : {
           cwd: `${BASE_DIR}/pybill`,
       },
+      wait_ready: true,
       ignore_watch : ["node_modules", ".git"],
       kill_timeout : 3000,
       max_restarts: 3,
       cwd       : `${BASE_DIR}/pybill`,
       log_date_format : "YYYY-MM-DD HH:mm:ss",
       env: {
-        PROCESS_FILE: 'pybill',   // process title, useful for ps -fC name
-        NODE_ENV: 'development',
+          PROCESS_FILE: 'pybill',   // process title, useful for ps -fC name
+          NODE_ENV: 'development',
       },
       env_production : {
-        NODE_ENV: 'production'
+          NODE_ENV: 'production'
       }
     },
     {
@@ -81,37 +87,42 @@ module.exports = {
       watch_options : {
           cwd: `${BASE_DIR}/pybytes-api`,
       },
+      wait_ready: true,
       ignore_watch : ["node_modules", ".git"],
       cwd       : `${BASE_DIR}/pybytes-api`,
       log_date_format : "YYYY-MM-DD HH:mm:ss",
       max_restarts: 3,
       env: {
-        PROCESS_FILE: 'web-backend',   // process title, useful for ps -fC name
-        NODE_ENV: 'development',
-        PORT: '3000',
-        DEBUG: ''
+          PROCESS_FILE: 'web-backend',   // process title, useful for ps -fC name
+          NODE_ENV: 'development',
+          PORT: '3000',
+          DEBUG: ''
       },
       env_production : {
-        NODE_ENV: 'production'
-      }
+          NODE_ENV: 'production'
+      },
+      exec_interpreter: `${BASE_DIR}/pybytes-api/node_modules/.bin/babel-node`,
+      source_map_support: true
     },
     // no watch for this app, hot reloader takes care of this
     {
       name      : 'web-frontend',
-      script    : 'scripts/start.js',
+      script    : '/usr/local/bin/npm',
       args : 'start',
       watch: false,
       max_restarts: 3,
       cwd       : `${BASE_DIR}/pybytes-react`,
       log_date_format : "YYYY-MM-DD HH:mm:ss",
       env: {
-        PROCESS_FILE: 'web-frontend',   // process title, useful for ps -fC name
-        NODE_ENV: 'development',
-        PORT: '3001'
+          PROCESS_FILE: 'web-frontend',   // process title, useful for ps -fC name
+          NODE_ENV: 'development',
+          PORT: '3001'
       },
       env_production : {
-        NODE_ENV: 'production'
-      }
+          NODE_ENV: 'production'
+      },
+      exec_interpreter: `${BASE_DIR}/pybytes-react/node_modules/.bin/babel-node`,
+      source_map_support: true
     },
   ],
 
