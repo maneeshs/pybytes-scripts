@@ -37,7 +37,8 @@ module.exports = {
     },
     {
       name      : 'pyauth',
-      script    : 'bin/www',
+      script    : '/usr/local/bin/npm',
+      args      : 'run dev',
       watch     : ["./"],
       watch_options : {
           cwd: `${BASE_DIR}/pyauth`,
