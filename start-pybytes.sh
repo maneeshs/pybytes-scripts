@@ -31,7 +31,7 @@ fi
 
 read -r -p "Start PyBill? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t PyBill -G "cd pybill; npm run develop"
+    ttab -t PyBill -G "cd pybill; npm run devbabel"
 fi
 
 read -r -p "Start PyAuth? [Y/n] " response
@@ -48,9 +48,3 @@ read -r -p "Start Pybytes-react? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
     ttab -t Pybytes-react -G "cd pybytes-react; npm run start"
 fi
-
-read -r -p "Start Pybytes-old [Y/n] " response
-if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t Pybytes-old -G "cd pybytes; npm run develop"
-fi
-
