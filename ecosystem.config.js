@@ -89,7 +89,7 @@ module.exports = {
           cwd: `${BASE_DIR}/pybytes-api`,
       },
       wait_ready: true,
-      ignore_watch : ["node_modules", ".git"],
+      ignore_watch : ["node_modules", ".git", "utils/fragmentTypes.json"],
       cwd       : `${BASE_DIR}/pybytes-api`,
       log_date_format : "YYYY-MM-DD HH:mm:ss",
       max_restarts: 3,
