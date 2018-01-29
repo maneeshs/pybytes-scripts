@@ -26,25 +26,20 @@ EOF
 
 read -r -p "Start mqtt-server? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t mqtt-server -G "cd mqttserver; npm run devbabel"
+    ttab -t mqtt-server -G "cd mqttserver; ./start.sh"
 fi
 
 read -r -p "Start PyBill? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t PyBill -G "cd pybill; npm run devbabel"
+    ttab -t PyBill -G "cd pybill; ./start.sh"
 fi
 
 read -r -p "Start PyAuth? [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t PyAuth -G "cd pyauth; npm run devbabel"
+    ttab -t PyAuth -G "cd pyauth; ./start.sh"
 fi
 
-read -r -p "Start Pybytes-api? [Y/n] " response
+read -r -p "Start Pybytes [Y/n] " response
 if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t Pybytes-api -G "cd pybytes-api; npm run devbabel"
-fi
-
-read -r -p "Start Pybytes-react? [Y/n] " response
-if [[ ${response} =~ ^(yes|Y|y| ) ]] || [ -z ${response} ]; then
-    ttab -t Pybytes-react -G "cd pybytes-react; npm run start"
+    ttab -t Pybytes-old -G "cd pybytes; ./start.sh"
 fi
